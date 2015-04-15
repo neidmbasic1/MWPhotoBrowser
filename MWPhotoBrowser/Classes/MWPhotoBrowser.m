@@ -448,7 +448,7 @@
     UINavigationBar *navBar = self.navigationController.navigationBar;
     navBar.tintColor = SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"7") ? self.navBarTintColor  : nil;
     if ([navBar respondsToSelector:@selector(setBarTintColor:)]) {
-        navBar.barTintColor = self.navBarTintColor ;
+        navBar.barTintColor = self.navBarBarTintColor;
         navBar.shadowImage = nil;
     }
     navBar.translucent = YES;
@@ -1147,6 +1147,7 @@
     
     // Init grid controller
     _gridController = [[MWGridViewController alloc] init];
+    _gridController.backgroundColor = self.backgroundColor;
     _gridController.initialContentOffset = _currentGridContentOffset;
     _gridController.browser = self;
     _gridController.selectionMode = _displaySelectionButtons;
